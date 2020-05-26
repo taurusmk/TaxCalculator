@@ -12,3 +12,5 @@
 /TaxCalculatorApp/.vs/TaxCalculator
 /TaxCalculatorApp/bin/Debug/netcoreapp3.1
 /TaxCalculatorApp/obj
+/UnitTests/bin/Debug/netcoreapp3.1
+/UnitTests/obj

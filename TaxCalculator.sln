@@ -15,6 +15,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ISalaryCalculatorServices",
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{E9BDB4F9-6B33-4B6A-90A3-D6B18BFFB56E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTests", "UnitTests\UnitTests.csproj", "{DDA90A03-70E7-4208-BE76-C6F05CA5A246}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{674EF39C-3F7D-496E-9D99-9643D621DCDF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{674EF39C-3F7D-496E-9D99-9643D621DCDF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{674EF39C-3F7D-496E-9D99-9643D621DCDF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DDA90A03-70E7-4208-BE76-C6F05CA5A246}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DDA90A03-70E7-4208-BE76-C6F05CA5A246}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DDA90A03-70E7-4208-BE76-C6F05CA5A246}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DDA90A03-70E7-4208-BE76-C6F05CA5A246}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -40,6 +46,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{7C87E00C-E616-465F-B8B5-B8E9001AF826} = {2349597E-3F74-4DAD-84DC-8F0E9358313D}
 		{674EF39C-3F7D-496E-9D99-9643D621DCDF} = {F62A5067-42B1-4F0A-9830-7135B507870F}
+		{DDA90A03-70E7-4208-BE76-C6F05CA5A246} = {E9BDB4F9-6B33-4B6A-90A3-D6B18BFFB56E}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {5642E6F9-B1B5-4711-9865-192FE2DB17E9}

@@ -1,26 +1,14 @@
 ﻿using System;
 using ISalaryCalculatorServices;
-using System.Configuration;
 
 namespace SalaryCalculatorServices
 {
     public class SalaryCalculatorService : ISalaryCalculatorService
     {
-        private readonly decimal incomeTaxValue;
-        private readonly decimal incomeTaxBoundary;
-
-        private readonly decimal socialContributionTaxValue;
-        private readonly decimal socialContributionTaxLowerBoundary;
-        private readonly decimal socialContributionTaxUpperBoundary;
-
-        public SalaryCalculatorService()
+        private IConfiguration configuration;
+        public SalaryCalculatorService(IConfiguration configuration)
         {
-            incomeTaxValue = Decimal.Parse(ConfigurationManager.AppSettings["IncomeTaxValue"]);
-            incomeTaxBoundary = Decimal.Parse(ConfigurationManager.AppSettings["IncomeTaxBoundary"]);
-
-            socialContributionTaxValue = Decimal.Parse(ConfigurationManager.AppSettings["SocialContributionTaxValue"]);
-            socialContributionTaxLowerBoundary = Decimal.Parse(ConfigurationManager.AppSettings["SocialContributionTaxLowerBoundary"]);
-            socialContributionTaxUpperBoundary = Decimal.Parse(ConfigurationManager.AppSettings["SocialContributionTaxUpperBoundary"]);
+            this.configuration = configuration;
         }
 
         public decimal CalculateNetSalary(decimal grossSalary)
@@ -32,9 +20,9 @@ namespace SalaryCalculatorServices
 
         public decimal CalculateIncomeTax(decimal grossSalary)
         {
-            if (grossSalary > incomeTaxBoundary)
+            if (grossSalary > configuration.IncomeTaxBoundary)
             {
-                return (grossSalary - incomeTaxBoundary) * incomeTaxValue;
+                return (grossSalary - configuration.IncomeTaxBoundary) * configuration.IncomeTaxValue;
             }
 
             return 0;
@@ -42,13 +30,13 @@ namespace SalaryCalculatorServices
 
         public decimal CalculateSocialContributionTax(decimal grossSalary)
         {
-            if (grossSalary > socialContributionTaxLowerBoundary)
+            if (grossSalary > configuration.SocialContributionTaxLowerBoundary)
             {
                 decimal amountForTaxation =
-                    (grossSalary - socialContributionTaxLowerBoundary) > (socialContributionTaxUpperBoundary - socialContributionTaxLowerBoundary)
-                        ? (socialContributionTaxUpperBoundary - socialContributionTaxLowerBoundary)
-                        : (grossSalary - socialContributionTaxLowerBoundary);
-                return amountForTaxation * socialContributionTaxValue;
+                    (grossSalary - configuration.SocialContributionTaxLowerBoundary) > (configuration.SocialContributionTaxUpperBoundary - configuration.SocialContributionTaxLowerBoundary)
+                        ? (configuration.SocialContributionTaxUpperBoundary - configuration.SocialContributionTaxLowerBoundary)
+                        : (grossSalary - configuration.SocialContributionTaxLowerBoundary);
+                return amountForTaxation * configuration.SocialContributionTaxValue;
             }
             else
             {
