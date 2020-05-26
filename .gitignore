@@ -5,3 +5,10 @@
 /.vs
 /TaxCalculator/.vs/TaxCalculator/v16
 /TaxCalculator/TaxCalculator/obj
+/ISalaryCalculatorService/bin/Debug/netcoreapp3.1
+/ISalaryCalculatorService/obj
+/SalaryCalculatorService/bin/Debug/netcoreapp3.1
+/SalaryCalculatorService/obj
+/TaxCalculatorApp/.vs/TaxCalculator
+/TaxCalculatorApp/bin/Debug/netcoreapp3.1
+/TaxCalculatorApp/obj
