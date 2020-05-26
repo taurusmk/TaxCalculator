@@ -3,6 +3,7 @@ using System.Configuration;
 using ISalaryCalculatorServices;
 using Microsoft.Extensions.DependencyInjection;
 using SalaryCalculatorServices;
+using Configuration = SalaryCalculatorServices.Configuration;
 
 namespace TaxCalculatorApp
 {
@@ -12,6 +13,7 @@ namespace TaxCalculatorApp
         {
             ServiceProvider serviceProvider = new ServiceCollection()
                 .AddSingleton<ISalaryCalculatorService, SalaryCalculatorService>()
+                .AddSingleton<IConfiguration, Configuration>()
                 .BuildServiceProvider();
 
             do
