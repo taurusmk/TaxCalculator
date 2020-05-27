@@ -21,11 +21,16 @@ namespace TaxCalculatorApp
                 decimal grossSalary;
                 string grossSalaryString = String.Empty;
 
-                Console.Write(StringConstants.EnterGrossSalary);
+                Console.Write(StringConstants.EnterGrossSalary, StringConstants.QuitString);
                 grossSalaryString = Console.ReadLine();
 
                 if (!decimal.TryParse(grossSalaryString, out grossSalary))
                 {
+                    if (grossSalaryString == StringConstants.QuitString)
+                    {
+                        return;
+                    }
+
                     Console.WriteLine(StringConstants.EnterValidNumber);
                     continue;
                 }

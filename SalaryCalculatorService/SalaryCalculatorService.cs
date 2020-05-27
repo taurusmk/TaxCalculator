@@ -15,6 +15,7 @@ namespace SalaryCalculatorServices
         {
             decimal incomeTaxAmount = CalculateIncomeTax(grossSalary);
             decimal socialContributionTaxAmount = CalculateSocialContributionTax(grossSalary);
+
             return grossSalary - incomeTaxAmount - socialContributionTaxAmount;
         }
 
@@ -22,7 +23,8 @@ namespace SalaryCalculatorServices
         {
             if (grossSalary > configuration.IncomeTaxBoundary)
             {
-                return (grossSalary - configuration.IncomeTaxBoundary) * configuration.IncomeTaxValue;
+                decimal basisForTaxation = grossSalary - configuration.IncomeTaxBoundary;
+                return basisForTaxation * configuration.IncomeTaxValue;
             }
 
             return 0;
@@ -32,16 +34,13 @@ namespace SalaryCalculatorServices
         {
             if (grossSalary > configuration.SocialContributionTaxLowerBoundary)
             {
-                decimal amountForTaxation =
-                    (grossSalary - configuration.SocialContributionTaxLowerBoundary) > (configuration.SocialContributionTaxUpperBoundary - configuration.SocialContributionTaxLowerBoundary)
-                        ? (configuration.SocialContributionTaxUpperBoundary - configuration.SocialContributionTaxLowerBoundary)
-                        : (grossSalary - configuration.SocialContributionTaxLowerBoundary);
+                decimal basisForTaxation = grossSalary - configuration.SocialContributionTaxLowerBoundary;
+                decimal maxAmountForTaxation = configuration.SocialContributionTaxUpperBoundary - configuration.SocialContributionTaxLowerBoundary;
+                decimal amountForTaxation = basisForTaxation > maxAmountForTaxation ? maxAmountForTaxation : basisForTaxation;
                 return amountForTaxation * configuration.SocialContributionTaxValue;
             }
-            else
-            {
-                return 0;
-            }
+
+            return 0;
         }
     }
 }

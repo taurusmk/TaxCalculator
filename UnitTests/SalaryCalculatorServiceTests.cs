@@ -29,7 +29,7 @@ namespace UnitTests
         [TestCase(5000, 4300)]
         public void CalculateNetSalaryTest(decimal grossSalary, decimal netSalary)
         {
-            //Setup
+            //setup
             ISalaryCalculatorService service = new SalaryCalculatorService(mockConfiguration.Object);
 
             //run
@@ -44,7 +44,7 @@ namespace UnitTests
         [TestCase(990, 0)]
         public void CalculateIncomeTaxTest(decimal grossSalary, decimal taxAmount)
         {
-            //Setup
+            //setup
             ISalaryCalculatorService service = new SalaryCalculatorService(mockConfiguration.Object);
 
             //run
@@ -60,7 +60,7 @@ namespace UnitTests
         [TestCase(3500, 300)]
         public void CalculateSocialContributionTaxTest(decimal grossSalary, decimal taxAmount)
         {
-            //Setup
+            //setup
             ISalaryCalculatorService service = new SalaryCalculatorService(mockConfiguration.Object);
 
             //run
